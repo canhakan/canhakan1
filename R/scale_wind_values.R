@@ -15,8 +15,9 @@ scale_wind_values <- function(train,
                               exclude_tail){
   # removing excludes
   exclude = c(exclude_head,exclude_tail)
-  d1 = train[,-..exclude]
-  d2 = test[,-..exclude]
+  excols = colnames(train)[exclude]
+  d1 = train[,-excols]
+  d2 = test[,-excols]
   # scaling (normalizing i guess) : divide all by maximum (as the minimum is zero as a speed)
   maximum = max(d1)
   d1 = d1/maximum
