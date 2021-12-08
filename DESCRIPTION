@@ -19,7 +19,5 @@ Imports:
     glmnet,
     kernlab,
     plot.matrix,
-    prcomp,
-    predict,
     stats,
     tidyr

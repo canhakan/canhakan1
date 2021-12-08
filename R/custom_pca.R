@@ -12,10 +12,10 @@ custom_pca <- function(train,
                        test,
                        n){
   # Do PCA on train data
-  pca = prcomp(train)
+  pca = stats::prcomp(train)
   # Apply it to Train and Test data and take first n PCs
-  pctrain = predict(pca,train)[,1:n]
-  pctest  = predict(pca,test)[,1:n]
+  pctrain = stats::predict(pca,train)[,1:n]
+  pctest  = stats::predict(pca,test)[,1:n]
   # Return both results in a list
   return(list(pctrain,pctest))
 }

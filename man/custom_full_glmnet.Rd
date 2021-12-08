@@ -21,11 +21,11 @@ custom_full_glmnet(
 
 \item{test}{matrix of test data for returning predictions}
 
-\item{testres}{observations of the test data for printing WMAPE and MAE results}
+\item{testres}{observations of the test data for printing WMAPE results}
 
 \item{perf}{type.measure for cv.glmnet. Default = 'mae'}
 
-\item{output}{set 'TRUE' for printing WMAPE and MAE results. Default = FALSE}
+\item{output}{set 'TRUE' for printing WMAPE results. Default = FALSE}
 
 \item{seed}{for setting seed. Default = 42}
 }

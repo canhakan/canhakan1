@@ -10,9 +10,11 @@ create_powered <- function(data,
                            powers,
                            exclude_head,
                            exclude_tail){
+  # as data.frame
+  data = data.frame(data)
   # remove excludes
   exclude = c(exclude_head,exclude_tail)
-  dat = data[,-..exclude]
+  dat = data[,-exclude]
   # Save data for final result
   res = dat
   # create powered data and set column names. Then combine it with the saved data
@@ -25,6 +27,6 @@ create_powered <- function(data,
     res = cbind(res,tem.dat)
   }
   # merge excluded columns
-  res = cbind(data[,..exclude_head],res,data[,..exclude_tail])
+  res = cbind(data[,exclude_head],res,data[,exclude_tail])
   return(res)
 }

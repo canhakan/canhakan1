@@ -18,26 +18,22 @@ create_lagged <- function(data,
                           lags,
                           exclude_head = NULL,
                           exclude_tail = NULL){
-  # STOP IF PACKAGES DOES NOT EXIST --------------
-    # if (!requireNamespace('data.table', quietly = TRUE)) {
-    #   stop("Package \"data.table\" needed for this function to work. Please install it.",
-    #        call. = FALSE)
-    # }
-  # STARTS HERE ----------------------------------
+  # data.table -> data.frame
+  data = data.frame(data)
   # get min/max for removing first/last rows from data for lag/lead
   min_lag = min(0,lags)
   max_lag = max(0,lags)
-  startN = 1 - minlag # for cutting the head
-  endN = nrow(data) - maxlag # for cutting the tail
+  startN = 1 - min_lag # for cutting the head
+  endN = nrow(data) - max_lag # for cutting the tail
   # seperating excludes
   exclude = c(exclude_head, exclude_tail)
-  tobe.head = data[(startN:endN),..exclude_head]
-  tobe.tail = data[(startN:endN),..exclude_tail]
+  tobe.head = data[(startN:endN),exclude_head]
+  tobe.tail = data[(startN:endN),exclude_tail]
   # creating an empty data.table for
   dat = data.table::data.table() # empty data table
   # adding lagged values one by one (column by column)
   for(i in lags){
-    lagdat = data[((startN+i):(endN+i)),-..exclude]
+    lagdat = data[((startN+i):(endN+i)),-exclude]
     if(i<0){
       lagname = paste('lag',-i,sep='')
       colnames(lagdat) = paste(colnames(lagdat),lagname,sep='_')

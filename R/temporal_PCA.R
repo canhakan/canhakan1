@@ -16,6 +16,8 @@ temporal_PCA <- function(data,
                          features,
                          ev,
                          n){
+  # set data to data.frame for a problem (temporarly. i need to read data.tables)
+  data = data.frame(data)
   # seperating data with location names (feature names)
   res = data.table::data.table()
   for(f in features){
@@ -29,7 +31,7 @@ temporal_PCA <- function(data,
       }else{
         x = f
       }
-      tempdata = cbind(tempdata, data[,..x])
+      tempdata = cbind(tempdata, data[,x])
       namelist = c(namelist, x)
     }
     # now we have a list of column names to seperate data

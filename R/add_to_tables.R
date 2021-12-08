@@ -30,7 +30,7 @@ add_to_tables <- function(data,
                    year = yearx,
                    month = monthx,
                    hour = data$hour,
-                   model = modelname,
+                   model = model_name,
                    actual = data$production,
                    predicted = predictions,
                    wmape = err)
@@ -38,7 +38,7 @@ add_to_tables <- function(data,
   colnames(res)[7:8] <- c('predicted','wmape')
   big_table = rbind(big_table,res)
 
-  res2 = data.table::data.table(model = modelname,
+  res2 = data.table::data.table(model = model_name,
                    wmape = err,
                    notes = notes)
   small_table = rbind(small_table,res2)
