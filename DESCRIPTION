@@ -12,10 +12,14 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2.9000
 Imports: 
+    caret,
     data.table,
     dplyr,
     ggplot2,
     glmnet,
     kernlab,
     plot.matrix,
+    prcomp,
+    predict,
+    stats,
     tidyr

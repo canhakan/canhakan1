@@ -13,22 +13,24 @@ scale_wind_values <- function(train,
                               test,
                               exclude_head,
                               exclude_tail){
+  # set train and test as data.frame as data.table creates troubles
+  trainX = data.frame(train)
+  testX = data.frame(test)
   # removing excludes
   exclude = c(exclude_head,exclude_tail)
-  excols = colnames(train)[exclude]
-  d1 = train[,-excols]
-  d2 = test[,-excols]
+  d1 = trainX[,-exclude]
+  d2 = testX[,-exclude]
   # scaling (normalizing i guess) : divide all by maximum (as the minimum is zero as a speed)
   maximum = max(d1)
   d1 = d1/maximum
   d2 = d2/maximum
   # merge excludes back
-  d1 = cbind(train[,..exclude_head],
+  d1 = cbind(trainX[,exclude_head],
              d1,
-             train[,..exclude_tail])
-  d2 = cbind(test[,..exclude_head],
+             trainX[,exclude_tail])
+  d2 = cbind(testX[,exclude_head],
              d2,
-             test[,..exclude_tail])
+             testX[,exclude_tail])
 
   res = list(d1,d2)
   return(res)
