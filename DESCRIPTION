@@ -1,0 +1,13 @@
+Package: canhakan1
+Type: Package
+Title: Helper Package for Spatio-temporal Time-Series Data
+Version: 0.1.0
+Author: Can Hakan Dagidir
+Maintainer: The package maintainer <canhakandagidir@gmail.com>
+Description: For my thesis, I am currently working on spatiotemporal timeseries data with wind speed at different locations as features.
+    This package contains some helpful functions for preparing data for PCAs and forecast models.
+    Some Functions: create_lagged, create_powered, prepare_autocovariance, prepare_KernelPCA, ...
+License: MIT License
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.2.9000
