@@ -1,11 +1,13 @@
-#' Prepare the Data to Lagged(?) Autocovariance
+#' @description Prepares the Data for lagged(?) autocovariance process. Creates a new dataframe with columns as lag/lead values. (e.g. Lag1, Normal, Lead1)
 #' @export
 #' @title Preparing for Autocovariance
 #' @param data input data
 #' @param lags list of wanted lags. Negative values correspond to lags while positives correspond to leads.
+#' @return data with columns as Lag/Lead
 
 
-prepare_autocovariance <- function(data,lags){
+prepare_for_autocovariance <- function(data,
+                                       lags){
   # create 1xlength(lags) matrix to turn into a data.table
   tdata = data.table::data.table(t(rep(0,length(lags))))
   # create column names

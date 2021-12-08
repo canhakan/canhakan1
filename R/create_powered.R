@@ -1,4 +1,4 @@
-#' Takes input data and adds powered values of the features, as new features
+#' @description Takes input data and adds powered values of the features, as new features
 #' @export
 #' @title Creates Powered Data
 #' @param data input data
@@ -6,7 +6,10 @@
 #' @param exclude_head the columns of data that is not subject to lagging process (e.g. date/hour). Will be merged to left-side of the lagged data.
 #' @param exclude_tail the columns of data that is not subject to lagging process (e.g. production). Will be merged to right-side of the lagged data.
 
-create_powered <- function(data, powers, exclude_head, exclude_tail){
+create_powered <- function(data,
+                           powers,
+                           exclude_head,
+                           exclude_tail){
   # remove excludes
   exclude = c(exclude_head,exclude_tail)
   dat = data[,-..exclude]

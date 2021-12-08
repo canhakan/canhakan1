@@ -15,6 +15,9 @@ create_lagged(data, lags, exclude_head = NULL, exclude_tail = NULL)
 
 \item{exclude_tail}{the columns of data that is not subject to lagging process (e.g. production). Will be merged to right-side}
 }
+\value{
+Data with more columns as lagged versions of existing columns
+}
 \description{
 Creates a new data frame(?) with Lag/Lead values. Also one may exclude the features(columns) from "lag process" but have them with the new data frame
 }

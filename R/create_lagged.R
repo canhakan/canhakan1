@@ -4,14 +4,16 @@
 #   Check Package:             'Cmd + Shift + E'
 #   Test Package:              'Cmd + Shift + T'
 
+# install_github('canhakan/canhakan1')
 
-#' Creates a new data frame(?) with Lag/Lead values. Also one may exclude the features(columns) from "lag process" but have them with the new data frame
+#' @description Creates a new data frame(?) with Lag/Lead values. Also one may exclude the features(columns) from "lag process" but have them with the new data frame
 #' @export
 #' @title Creates Lagged Data
 #' @param data input data
 #' @param lags list of wanted lags. Negative values correspond to lags while positives correspond to leads.
 #' @param exclude_head the columns of data that is not subject to lagging process (e.g. date/hour). Will be merged to left-side of the lagged data.
 #' @param exclude_tail the columns of data that is not subject to lagging process (e.g. production). Will be merged to right-side
+#' @return Data with more columns as lagged versions of existing columns
 create_lagged <- function(data,
                           lags,
                           exclude_head = NULL,
@@ -32,8 +34,7 @@ create_lagged <- function(data,
   tobe.head = data[(startN:endN),..exclude_head]
   tobe.tail = data[(startN:endN),..exclude_tail]
   # creating an empty data.table for
-  # dat = data.table::data.table() # empty data table
-  dat = data.frame()
+  dat = data.table::data.table() # empty data table
   # adding lagged values one by one (column by column)
   for(i in lags){
     lagdat = data[((startN+i):(endN+i)),-..exclude]
