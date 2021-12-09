@@ -31,6 +31,9 @@ scale_wind_values <- function(train,
   d2 = cbind(testX[,exclude_head],
              d2,
              testX[,exclude_tail])
+  # need to set colnames again as they may change if exclude_head or tail is not a list but a number
+  colnames(d1) = colnames(train)
+  colnames(d2) = colnames(test) # or colnames(train)
 
   res = list(d1,d2)
   return(res)
