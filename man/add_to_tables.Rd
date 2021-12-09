@@ -4,23 +4,12 @@
 \alias{add_to_tables}
 \title{Adds Models Results to Two Result Tables}
 \usage{
-add_to_tables(
-  data,
-  predictions,
-  big_table,
-  small_table,
-  model_name,
-  notes = "-"
-)
+add_to_tables(data, predictions, model_name, notes = "-")
 }
 \arguments{
 \item{data}{is the full data with 'y' values and all}
 
 \item{predictions}{is the model's prediction results}
-
-\item{big_table}{is the existing table of all results}
-
-\item{small_table}{is the existing table of summarised results}
 
 \item{model_name}{is the name of the model that produced the predictions. For note taking purposes, only.}
 
